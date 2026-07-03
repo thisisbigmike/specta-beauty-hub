@@ -402,7 +402,16 @@ function initTheme() {
     btn.addEventListener("click", () => {
       const isDark = document.documentElement.classList.contains("dark");
       const nextTheme = isDark ? "light" : "dark";
+      
+      // Temporarily add smooth transition class to all elements during swap
+      document.documentElement.classList.add("theme-transitioning");
+      
       applyTheme(nextTheme);
+      
+      // Remove class after style transition finishes
+      setTimeout(() => {
+        document.documentElement.classList.remove("theme-transitioning");
+      }, 500);
     });
   });
 }
@@ -689,7 +698,7 @@ function renderProducts() {
       <div class="group flex flex-col bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 overflow-hidden shadow-sm hover:shadow-[0_10px_30px_rgba(6,78,59,0.08)] transition-all duration-300 hover-lift hover-glow cursor-pointer aceternity-card reveal-item" style="--reveal-delay: ${staggerDelay}ms" onclick="openProductDetail('${prod.id}')">
         <div class="aceternity-border"></div>
         <div class="relative aspect-square overflow-hidden bg-surface-container dark:bg-surface-container-dark flex items-center justify-center p-8">
-          <img class="w-full h-full object-cover rounded transition-transform duration-500 group-hover:scale-105" src="${prod.image}" alt="${prod.name}" loading="lazy">
+          <img class="product-card-image w-full h-full object-cover rounded" src="${prod.image}" alt="${prod.name}" loading="lazy">
           ${prod.isBestseller ? `
             <div class="absolute top-4 left-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-xs font-label-sm uppercase px-3 py-1 rounded-sm tracking-wider">Bestseller</div>
           ` : ''}

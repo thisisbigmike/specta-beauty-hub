@@ -89,6 +89,18 @@ select, textarea, img {
   transition: var(--transition-theme);
 }
 
+/* Seamless transition block applied dynamically during theme toggles */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important,
+              border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important,
+              color 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important,
+              box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
 /* === FORCE DARK-MODE COLOR OVERRIDES === */
 /* Background overrides */
 html.dark .bg-background,
@@ -373,6 +385,19 @@ html.dark .toast {
 }
 html.dark .hover-glow:hover {
   box-shadow: 0 0 20px rgba(149, 211, 186, 0.12);
+}
+
+/* === PRODUCT CARD IMAGE HOVER === */
+.product-card-image {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease, brightness 0.4s ease;
+  filter: brightness(1);
+}
+.group:hover .product-card-image {
+  transform: scale(1.12) rotate(1deg);
+  filter: brightness(1.08);
+}
+html.dark .group:hover .product-card-image {
+  filter: brightness(1.15);
 }
 
 /* === 3D CARD TILT === */
