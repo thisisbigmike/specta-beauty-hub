@@ -74,16 +74,18 @@
       <div class="flex items-center gap-4">
         <!-- Light/Dark Mode Toggle -->
         <button
-          class="theme-toggle-btn text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2"
+          class="theme-toggle-btn text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1"
           aria-label="Toggle light/dark mode">
           <span class="material-symbols-outlined theme-toggle-icon">dark_mode</span>
+          <span class="sr-only">Toggle theme</span>
         </button>
 
         <!-- Shopping Bag Trigger -->
         <button id="cart-open-btn"
-          class="relative text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2"
+          class="relative text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1"
           aria-label="Open Cart Bag">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+          <span class="sr-only">Cart</span>
           <span
             class="cart-count-badge hidden absolute -top-1 -right-1 bg-secondary dark:bg-secondary-fixed text-on-secondary dark:text-on-secondary-fixed font-semibold text-[10px] w-5 h-5 flex items-center justify-center rounded-full border border-background dark:border-surface">0</span>
         </button>
