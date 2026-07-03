@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>SpectaVit Beauty Hub</title>
+  <meta name="description" content="Premium beauty products, wig revamp supplies, and professional salon equipment. 24/7 delivery across Nigeria.">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -70,7 +71,9 @@
             "primary": "#003527",
             "primary-container": "#064e3b",
             "surface-container-lowest": "#ffffff",
-            "on-background": "#1b1c19"
+            "on-background": "#1b1c19",
+            "surface-dark": "#0e1110",
+            "surface-container-dark": "#1c201e"
           },
           borderRadius: {
             "DEFAULT": "0.125rem",
@@ -116,16 +119,23 @@
 </head>
 
 <body
-  class="bg-background dark:bg-background text-on-background dark:text-on-surface font-body-md antialiased selection:bg-secondary/20 selection:text-primary">
+  class="bg-background dark:bg-surface-dark text-on-background dark:text-on-surface font-body-md antialiased selection:bg-secondary/20 selection:text-primary">
+
+  <!-- Page Entrance Loader -->
+  <div id="page-loader" class="page-loader">
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0c7oJP3SE0cNpU1OEuaShoXtJrUemAqsz_ZFOjBmSyq27TRr0A40QZT0xJae3d5gati44Pttz1dFJKHcC9mkVgcSFSzC4ny3DURCjYP_oXJxv4AGhh0ZocZXrIBOmK6cPH2o9TFhDlP-cYMnUlMKD26rMxP3KBlQ4cXxj4GHDOGluxj1LKL1t0hWGSTN27LjMcApU8nJn6FtB8bBT0_NftapyggdbxzdtXXty9JHxfJWA5x1KD0jFt5QEUCKDa7BmjdE"
+      alt="Loading..." class="loader-brand h-20 w-20 object-cover rounded-full">
+  </div>
 
   <!-- TopNavBar Component -->
-  <nav class="docked full-width top-0 sticky z-50 glass-nav border-b border-outline-variant/30 dark:border-outline/20">
+  <nav id="main-nav" class="docked full-width top-0 sticky z-50 glass-nav border-b border-outline-variant/30 dark:border-outline/20 transition-all duration-300">
     <div
       class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto">
       <!-- Brand Logo -->
       <a class="flex items-center gap-3" href="#">
         <img alt="SpectaVit Beauty Hub Logo"
-          class="h-12 w-12 object-cover rounded-full shadow-sm border border-secondary/20 dark:border-outline/20"
+          class="nav-logo h-12 w-12 object-cover rounded-full shadow-sm border border-secondary/20 dark:border-outline/20"
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0c7oJP3SE0cNpU1OEuaShoXtJrUemAqsz_ZFOjBmSyq27TRr0A40QZT0xJae3d5gati44Pttz1dFJKHcC9mkVgcSFSzC4ny3DURCjYP_oXJxv4AGhh0ZocZXrIBOmK6cPH2o9TFhDlP-cYMnUlMKD26rMxP3KBlQ4cXxj4GHDOGluxj1LKL1t0hWGSTN27LjMcApU8nJn6FtB8bBT0_NftapyggdbxzdtXXty9JHxfJWA5x1KD0jFt5QEUCKDa7BmjdE">
         <span
           class="font-display-lg text-headline-md tracking-tight text-primary dark:text-on-primary-container hidden sm:block">SpectaVit
@@ -228,7 +238,7 @@
         </div>
         <div class="pt-8 border-t border-outline-variant/20 dark:border-outline/10 flex flex-col gap-4">
           <button onclick="openBookingModal()"
-            class="w-full py-3.5 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-center rounded font-label-md uppercase tracking-wider">Book
+            class="w-full py-3.5 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-center rounded font-label-md uppercase tracking-wider magnetic-btn">Book
             Revamp</button>
           <a href="tel:09121797174"
             class="w-full py-3.5 border border-secondary text-secondary dark:text-secondary-fixed text-center rounded font-label-md uppercase tracking-wider flex items-center justify-center gap-2">
@@ -275,7 +285,7 @@
             Shipping and delivery rates are finalized by the concierge line. Payment required prior to dispatch.
           </p>
           <button id="cart-checkout-btn" onclick="checkoutCart()"
-            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-widest rounded shadow hover:bg-primary-container transition-colors text-center block">
+            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-widest rounded shadow hover:bg-primary-container transition-colors text-center block magnetic-btn">
             Submit Bag Inquiry
           </button>
         </div>
@@ -359,7 +369,7 @@
         </div>
         <div class="pt-4">
           <button type="submit"
-            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-wider rounded shadow hover:bg-primary-container transition-colors">Confirm
+            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-wider rounded shadow hover:bg-primary-container transition-colors magnetic-btn">Confirm
             and Send Details</button>
         </div>
       </form>
@@ -402,11 +412,11 @@
             </div>
             <div class="grid grid-cols-2 gap-4">
               <button onclick="addSelectedToCart()"
-                class="py-3 px-4 bg-secondary text-on-secondary dark:bg-secondary-fixed dark:text-on-secondary-fixed font-label-md uppercase tracking-wider rounded shadow hover:bg-secondary/95 transition-all text-center flex items-center justify-center gap-2">
+                class="py-3 px-4 bg-secondary text-on-secondary dark:bg-secondary-fixed dark:text-on-secondary-fixed font-label-md uppercase tracking-wider rounded shadow hover:bg-secondary/95 transition-all text-center flex items-center justify-center gap-2 magnetic-btn">
                 <span class="material-symbols-outlined text-sm">add_shopping_cart</span> Add to bag
               </button>
               <button onclick="inquireSelectedProduct()"
-                class="py-3 px-4 border border-primary dark:border-outline text-primary dark:text-on-primary-container hover:bg-primary/5 dark:hover:bg-outline/10 font-label-md uppercase tracking-wider rounded transition-all text-center flex items-center justify-center gap-2">
+                class="py-3 px-4 border border-primary dark:border-outline text-primary dark:text-on-primary-container hover:bg-primary/5 dark:hover:bg-outline/10 font-label-md uppercase tracking-wider rounded transition-all text-center flex items-center justify-center gap-2 magnetic-btn">
                 <span class="material-symbols-outlined text-sm">chat</span> Inquiry
               </button>
             </div>
@@ -420,8 +430,8 @@
     <!-- Hero Section -->
     <section class="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
       <!-- Magic UI Ambient decorative lights -->
-      <div class="ambient-light ambient-primary -top-20 -left-20"></div>
-      <div class="ambient-light ambient-secondary bottom-10 right-10"></div>
+      <div class="ambient-light ambient-primary -top-20 -left-20" data-parallax="0.03"></div>
+      <div class="ambient-light ambient-secondary bottom-10 right-10" data-parallax="0.05"></div>
 
       <!-- Background Image -->
       <div class="absolute inset-0 z-0">
@@ -431,50 +441,70 @@
         </div>
         <!-- Gradient Overlay -->
         <div
-          class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent dark:from-background dark:via-background/85 dark:to-transparent">
+          class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent dark:from-surface-dark dark:via-surface-dark/85 dark:to-transparent">
         </div>
       </div>
 
       <div
         class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 flex flex-col items-start md:w-2/3 lg:w-1/2">
         <div
-          class="inline-flex items-center gap-2 mb-6 px-4 py-1 border border-secondary/30 rounded-full bg-surface-container-lowest/50 dark:bg-surface-dark/50 backdrop-blur-sm reveal-item">
+          class="hero-badge inline-flex items-center gap-2 mb-6 px-4 py-1 border border-secondary/30 rounded-full bg-surface-container-lowest/50 dark:bg-surface-dark/50 backdrop-blur-sm">
           <span class="w-2 h-2 rounded-full bg-secondary dark:bg-secondary-fixed animate-pulse"></span>
           <span
             class="font-label-sm text-primary dark:text-on-primary-container uppercase tracking-widest text-[11px]">Premium
             Service</span>
         </div>
         <h1
-          class="font-display-lg text-display-lg text-primary dark:text-on-primary-container mb-6 text-balance leading-tight reveal-item">
-          Elite Beauty.<br>
-          <span class="text-secondary dark:text-secondary-fixed italic">24/7 Service.</span><br>
-          Delivered Nationwide.
+          class="font-display-lg text-display-lg text-primary dark:text-on-primary-container mb-6 text-balance leading-tight">
+          <span class="hero-line">Elite Beauty.</span>
+          <span class="hero-line text-secondary dark:text-secondary-fixed italic">24/7 Service.</span>
+          <span class="hero-line">Delivered Nationwide.</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant dark:text-on-tertiary-container/90 mb-10 max-w-md reveal-item">
+        <p class="hero-subtitle font-body-lg text-body-lg text-on-surface-variant dark:text-on-tertiary-container/90 mb-10 max-w-md">
           Exactly what you need, exactly when you need it. No delays, no compromises. Straight from Specta to your door.
         </p>
-        <div class="flex flex-wrap gap-4 reveal-item">
-          <a class="inline-flex items-center justify-center px-8 py-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container font-label-md uppercase tracking-wider rounded shadow-[0_10px_30px_rgba(6,78,59,0.15)] hover:bg-primary-container transition-all duration-300 hover:shadow-[0_10px_30px_rgba(107,33,168,0.2)] btn-shine"
+        <div class="hero-cta flex flex-wrap gap-4">
+          <a class="magnetic-btn inline-flex items-center justify-center px-8 py-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container font-label-md uppercase tracking-wider rounded shadow-[0_10px_30px_rgba(6,78,59,0.15)] hover:bg-primary-container transition-all duration-300 hover:shadow-[0_10px_30px_rgba(107,33,168,0.2)] btn-shine"
             href="#collection">
             Shop Collection
           </a>
           <button onclick="openBookingModal()"
-            class="inline-flex items-center justify-center px-8 py-4 bg-transparent border border-secondary dark:border-outline text-secondary dark:text-secondary-fixed font-label-md uppercase tracking-wider rounded hover:bg-secondary/5 dark:hover:bg-outline/10 transition-all duration-300 btn-shine">
+            class="magnetic-btn inline-flex items-center justify-center px-8 py-4 bg-transparent border border-secondary dark:border-outline text-secondary dark:text-secondary-fixed font-label-md uppercase tracking-wider rounded hover:bg-secondary/5 dark:hover:bg-outline/10 transition-all duration-300 btn-shine">
             Book Revamp Flow
           </button>
         </div>
       </div>
     </section>
 
+    <!-- Social Proof Marquee Strip -->
+    <div class="marquee-strip w-full py-4 border-y border-outline-variant/20 dark:border-outline/10 bg-surface-container-low dark:bg-surface-dark">
+      <div class="marquee-track text-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest">
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span> Trusted by 500+ Clients</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span> 24/7 Nationwide Delivery</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Premium Quality Products</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9★ Average Rating</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">support_agent</span> WhatsApp Concierge</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">lock</span> Secure Payments</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span> Trusted by 500+ Clients</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span> 24/7 Nationwide Delivery</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Premium Quality Products</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9★ Average Rating</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">support_agent</span> WhatsApp Concierge</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">lock</span> Secure Payments</span>
+      </div>
+    </div>
+
     <!-- Services Section (Value Proposition) -->
     <section
       class="w-full bg-surface-container-low dark:bg-surface-container-dark py-20 border-t border-outline-variant/20 dark:border-outline/10"
       id="services">
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 reveal-item">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           <!-- Service 1 -->
           <div
-            class="flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300">
+            class="reveal-item flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300"
+            style="--reveal-delay: 0ms">
             <div
               class="w-16 h-16 rounded-full bg-primary/5 dark:bg-primary-container/10 flex items-center justify-center mb-6 text-primary dark:text-on-primary-container">
               <span class="material-symbols-outlined text-3xl"
@@ -487,7 +517,8 @@
           </div>
           <!-- Service 2 -->
           <div
-            class="flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300">
+            class="reveal-item flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300"
+            style="--reveal-delay: 120ms">
             <div
               class="w-16 h-16 rounded-full bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center mb-6 text-secondary dark:text-secondary-fixed">
               <span class="material-symbols-outlined text-3xl"
@@ -500,7 +531,8 @@
           </div>
           <!-- Service 3 -->
           <div
-            class="flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300">
+            class="reveal-item flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300"
+            style="--reveal-delay: 240ms">
             <div
               class="w-16 h-16 rounded-full bg-primary/5 dark:bg-primary-container/10 flex items-center justify-center mb-6 text-primary dark:text-on-primary-container">
               <span class="material-symbols-outlined text-3xl"
@@ -515,8 +547,32 @@
       </div>
     </section>
 
+    <!-- Animated Stats Counter Section -->
+    <section class="w-full py-16 bg-background dark:bg-surface-dark border-b border-outline-variant/20 dark:border-outline/10">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+          <div class="reveal-item text-center p-6 rounded-xl gradient-border" style="--reveal-delay: 0ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="500" data-suffix="+">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">Happy Clients</p>
+          </div>
+          <div class="reveal-item text-center p-6 rounded-xl gradient-border" style="--reveal-delay: 100ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="35" data-suffix="">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">Premium Products</p>
+          </div>
+          <div class="reveal-item text-center p-6 rounded-xl gradient-border" style="--reveal-delay: 200ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="24" data-suffix="/7">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">Service Hours</p>
+          </div>
+          <div class="reveal-item text-center p-6 rounded-xl gradient-border" style="--reveal-delay: 300ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="36" data-suffix="">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">States Covered</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Product Categories Grid (Bento Style) -->
-    <section class="w-full py-24 bg-background dark:bg-background" id="categories">
+    <section class="w-full py-24 bg-background dark:bg-surface-dark" id="categories">
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div class="text-center mb-16 reveal-item">
           <h2
@@ -529,7 +585,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
           <!-- Category 1: Wig Revamp (Large) -->
           <div
-            class="md:col-span-8 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card reveal-item">
+            class="md:col-span-8 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card tilt-card reveal-item">
             <div class="aceternity-border"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbxtQzJ7oqap4OlmmiujTllYnExBJoDO522tM0oIU9AyzRkdgtW6KByIPUtgNgnBLoaBQH0I8v5xFcKT1BIzTr9GDVZ9OrSp7l8baxZgVyVnO28dLPmQ3XOEOg06MxkFas1jmspxk5OIcqVZjQat0oHo4T9e2WHraBYt0j9tvYMN9xFrA75w1_LfigTUYVwAnDXrhD40SOMW2Fim-o26QngSImTTXu0lrhOsex01UHxldzwQV0gqmCyw')">
@@ -549,7 +605,7 @@
 
           <!-- Category 2: Installation (Tall) -->
           <div
-            class="md:col-span-4 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card reveal-item">
+            class="md:col-span-4 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card tilt-card reveal-item">
             <div class="aceternity-border"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8iOcG8nBn3dCe6phTPvQtOMIXXZ6UKFWiD8tqXaQKk0yHy4tPBY3bBF5J0ois8FD177YVJY4oSBVbV24WN_eBFjdBA04hXV2xHnSNXYO8dxXqZP_NKs1vzCAUhLEfJPZtjxqfmSUvS2t0uBMcpNONFdYi3vMkIugMh-zcOMFvjjOrmxb20np_qltUN9LqjEzKPiaP-5Nw6UsRIL--hdPfSURsehQkNB-r6B9V1I0kPwYpuDOaVxeLYA')">
@@ -569,7 +625,7 @@
 
           <!-- Category 3: Salon Equipment (Square) -->
           <div
-            class="md:col-span-4 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card reveal-item">
+            class="md:col-span-4 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card tilt-card reveal-item">
             <div class="aceternity-border"></div>
             <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCkX1rpzA6C3LKFMa-byh8Fs0ObLsD3leTmYbJcgHKSn2Bo15iDD2WbPGCUo3DuDw0kKKjS0fHsQhzIX--VxeZ28syWsou9-mUMut-1u9Ke5gHUpPrWhjz_72DsibWlkFIAF8kzR1jXFdQHD94Anl3rfQ8il8Sv6EY8QiQo7BBVLB46e2qFuaunoshDMjYarizTMWlchBA3RxTzdj3KOGCAsCogkKzNMQrCEoaskqt0jclIHa_Rw_1kA')">
@@ -589,7 +645,7 @@
 
           <!-- Category 4: Accessories (Square) -->
           <div
-            class="md:col-span-4 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 bg-surface-container-lowest dark:bg-surface-dark flex items-center justify-center p-8 text-center hover-lift aceternity-card reveal-item">
+            class="md:col-span-4 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 bg-surface-container-lowest dark:bg-surface-dark flex items-center justify-center p-8 text-center hover-lift aceternity-card tilt-card reveal-item">
             <div class="aceternity-border"></div>
             <div class="relative z-10">
               <div
@@ -616,8 +672,8 @@
       class="relative w-full py-24 bg-surface-container-low dark:bg-surface-container-dark border-y border-outline-variant/20 dark:border-outline/10 overflow-hidden"
       id="collection">
       <!-- Magic UI Ambient lights -->
-      <div class="ambient-light ambient-primary -bottom-10 -left-10"></div>
-      <div class="ambient-light ambient-secondary -top-20 -right-20"></div>
+      <div class="ambient-light ambient-primary -bottom-10 -left-10" data-parallax="0.04"></div>
+      <div class="ambient-light ambient-secondary -top-20 -right-20" data-parallax="0.06"></div>
 
       <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
         <div class="text-center mb-12 reveal-item">
@@ -666,20 +722,20 @@
     </section>
 
     <!-- Message / Direct Booking Call Section -->
-    <section class="w-full py-24 bg-background dark:bg-background">
+    <section class="w-full py-24 bg-background dark:bg-surface-dark">
       <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
         <span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-5xl mb-6 opacity-80"
           style="font-variation-settings: 'FILL' 1;">format_quote</span>
-        <h2 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-container mb-8">A Message from
+        <h2 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-container mb-8 reveal-item">A Message from
           Specta</h2>
         <p
-          class="font-body-md text-[20px] leading-relaxed text-on-surface-variant dark:text-on-tertiary-container italic mb-10 text-balance">
+          class="reveal-item font-body-md text-[20px] leading-relaxed text-on-surface-variant dark:text-on-tertiary-container italic mb-10 text-balance">
           "Welcome to a standard of beauty that refuses to compromise. We built this hub to ensure professionals and
           enthusiasts alike have continuous, immediate access to the finest tools and products on the market. We are
           here for you, 24/7."
         </p>
         <div
-          class="inline-flex flex-col items-center p-6 border border-secondary/20 dark:border-outline/10 rounded-xl bg-surface-container-lowest dark:bg-surface-dark shadow-sm">
+          class="reveal-item inline-flex flex-col items-center p-6 border border-secondary/20 dark:border-outline/10 rounded-xl bg-surface-container-lowest dark:bg-surface-dark shadow-sm">
           <span
             class="font-label-sm text-secondary dark:text-secondary-fixed-dim uppercase tracking-widest mb-2 text-xs">Direct
             Concierge Line</span>

@@ -359,6 +359,7 @@ let selectedProduct = null;
 
 // Initialize App
 document.addEventListener("DOMContentLoaded", () => {
+  initPageLoader();
   initTheme();
   renderProducts();
   setupEventListeners();
@@ -366,9 +367,30 @@ document.addEventListener("DOMContentLoaded", () => {
   initLenisSmoothScroll();
   initScrollReveal();
   initCardGradients();
+  initNavScrollEffect();
+  initParallax();
+  initMagneticButtons();
+  initTiltCards();
+  initAnimatedCounters();
 });
 
-// --- Theme Management ---
+// === PAGE ENTRANCE LOADER ===
+function initPageLoader() {
+  const loader = document.getElementById("page-loader");
+  if (!loader) return;
+
+  // Fade out after a brief loading period
+  setTimeout(() => {
+    loader.classList.add("loaded");
+  }, 600);
+
+  // Remove from DOM after transition
+  loader.addEventListener("transitionend", () => {
+    loader.remove();
+  });
+}
+
+// === THEME MANAGEMENT ===
 function initTheme() {
   const themeToggleBtns = document.querySelectorAll(".theme-toggle-btn");
   const currentTheme = localStorage.getItem("theme") || 
@@ -397,7 +419,133 @@ function applyTheme(theme) {
   localStorage.setItem("theme", theme);
 }
 
-// --- Drawers (Scroll Snap Lifecycle) ---
+// === NAVBAR SCROLL SHRINK EFFECT ===
+function initNavScrollEffect() {
+  const nav = document.getElementById("main-nav");
+  if (!nav) return;
+
+  let lastScroll = 0;
+  const scrollThreshold = 60;
+
+  window.addEventListener("scroll", () => {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > scrollThreshold) {
+      nav.classList.add("nav-scrolled");
+    } else {
+      nav.classList.remove("nav-scrolled");
+    }
+
+    lastScroll = currentScroll;
+  }, { passive: true });
+}
+
+// === PARALLAX AMBIENT LIGHTS ===
+function initParallax() {
+  const parallaxEls = document.querySelectorAll("[data-parallax]");
+  if (parallaxEls.length === 0) return;
+
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.dataset.parallax) || 0.03;
+      const yOffset = scrollY * speed;
+      const xOffset = Math.sin(scrollY * 0.002) * 20 * speed * 10;
+      el.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+    });
+  }, { passive: true });
+}
+
+// === MAGNETIC BUTTON EFFECT ===
+function initMagneticButtons() {
+  const buttons = document.querySelectorAll(".magnetic-btn");
+  
+  buttons.forEach(btn => {
+    btn.addEventListener("mousemove", (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+    });
+
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "translate(0, 0)";
+    });
+  });
+}
+
+// === 3D TILT CARD EFFECT ===
+function initTiltCards() {
+  const cards = document.querySelectorAll(".tilt-card");
+  
+  cards.forEach(card => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+      
+      const tiltX = (y - 0.5) * 8;  // max 4 deg
+      const tiltY = (x - 0.5) * -8; // max 4 deg
+      
+      card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+      card.style.transition = "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)";
+      setTimeout(() => { card.style.transition = ""; }, 500);
+    });
+
+    card.addEventListener("mouseenter", () => {
+      card.style.transition = "none";
+    });
+  });
+}
+
+// === ANIMATED COUNTERS ===
+function initAnimatedCounters() {
+  const counters = document.querySelectorAll(".counter-value");
+  if (counters.length === 0) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || "";
+        animateCounter(el, target, suffix);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  counters.forEach(c => observer.observe(c));
+}
+
+function animateCounter(el, target, suffix) {
+  const duration = 2000;
+  const startTime = performance.now();
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    // Ease out cubic
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(eased * target);
+    
+    el.textContent = current + suffix;
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
+
+// === DRAWERS (Scroll Snap Lifecycle) ===
 function initDrawers() {
   // Left Drawer (Menu)
   setupScrollSnapDrawer("menu-drawer", "drawer-open-btn", "drawer-close-btn", "left");
@@ -511,7 +659,7 @@ function setupScrollSnapDrawer(drawerId, openBtnId, closeBtnId, direction) {
   }
 }
 
-// --- Dynamic Catalog Rendering ---
+// === DYNAMIC CATALOG RENDERING ===
 function renderProducts() {
   const productGrid = document.getElementById("product-grid");
   if (!productGrid) return;
@@ -534,13 +682,14 @@ function renderProducts() {
     return;
   }
 
-  productGrid.innerHTML = filtered.map(prod => {
+  productGrid.innerHTML = filtered.map((prod, index) => {
     const formattedPrice = `₦${prod.price.toLocaleString()}`;
+    const staggerDelay = Math.min(index * 60, 400); // Cap at 400ms
     return `
-      <div class="group flex flex-col bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 overflow-hidden shadow-sm hover:shadow-[0_10px_30px_rgba(6,78,59,0.08)] transition-all duration-300 hover-lift hover-glow cursor-pointer aceternity-card reveal-item" onclick="openProductDetail('${prod.id}')">
+      <div class="group flex flex-col bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 overflow-hidden shadow-sm hover:shadow-[0_10px_30px_rgba(6,78,59,0.08)] transition-all duration-300 hover-lift hover-glow cursor-pointer aceternity-card reveal-item" style="--reveal-delay: ${staggerDelay}ms" onclick="openProductDetail('${prod.id}')">
         <div class="aceternity-border"></div>
         <div class="relative aspect-square overflow-hidden bg-surface-container dark:bg-surface-container-dark flex items-center justify-center p-8">
-          <img class="w-full h-full object-cover rounded transition-transform duration-500 group-hover:scale-105" src="${prod.image}" alt="${prod.name}">
+          <img class="w-full h-full object-cover rounded transition-transform duration-500 group-hover:scale-105" src="${prod.image}" alt="${prod.name}" loading="lazy">
           ${prod.isBestseller ? `
             <div class="absolute top-4 left-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-xs font-label-sm uppercase px-3 py-1 rounded-sm tracking-wider">Bestseller</div>
           ` : ''}
@@ -574,7 +723,7 @@ function getCategoryName(cat) {
   }
 }
 
-// --- Product Detail Modal ---
+// === PRODUCT DETAIL MODAL ===
 window.openProductDetail = function(productId) {
   const prod = PRODUCTS.find(p => p.id === productId);
   if (!prod) return;
@@ -619,7 +768,7 @@ window.addSelectedToCart = function() {
   closeProductDetail();
 };
 
-// --- Shopping Cart Management ---
+// === SHOPPING CART MANAGEMENT ===
 window.handleAddToCart = function(productId) {
   const prod = PRODUCTS.find(p => p.id === productId);
   if (!prod) return;
@@ -759,7 +908,7 @@ window.checkoutCart = function() {
   showToast("Order initiated! Redirecting to WhatsApp concierge...");
 };
 
-// --- Service Bookings Form ---
+// === SERVICE BOOKINGS FORM ===
 window.openBookingModal = function(serviceType = "") {
   const dialog = document.getElementById("booking-modal");
   const serviceSelect = document.getElementById("booking-service");
@@ -810,7 +959,7 @@ window.submitBookingForm = function(event) {
   showToast("Booking request sent! Redirecting to WhatsApp concierge...");
 };
 
-// --- Search & Filters ---
+// === SEARCH & FILTERS ===
 function setupEventListeners() {
   const searchInput = document.getElementById("catalog-search");
   if (searchInput) {
@@ -858,7 +1007,7 @@ function setupEventListeners() {
   });
 }
 
-// --- Toast System ---
+// === TOAST SYSTEM ===
 function showToast(message) {
   let container = document.getElementById("toast-container");
   if (!container) {
@@ -891,7 +1040,9 @@ function showToast(message) {
   }, 3500);
 }
 
-// --- Premium Animation Features (Lenis, Scroll Reveal, Aceternity Gradients) ---
+// === PREMIUM ANIMATION FEATURES ===
+
+// Lenis Smooth Scroll
 function initLenisSmoothScroll() {
   if (typeof Lenis !== 'undefined') {
     const lenis = new Lenis({
@@ -915,8 +1066,10 @@ function initLenisSmoothScroll() {
   }
 }
 
+// Staggered Scroll Reveal with IntersectionObserver
 function initScrollReveal() {
-  const revealElements = document.querySelectorAll(".reveal-item, .reveal-fade");
+  const revealElements = document.querySelectorAll(".reveal-item:not(.revealed), .reveal-fade:not(.revealed)");
+  
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -933,6 +1086,7 @@ function initScrollReveal() {
   revealElements.forEach(el => observer.observe(el));
 }
 
+// Aceternity Cursor Tracking Card Gradients
 function initCardGradients() {
   document.addEventListener("mousemove", (e) => {
     const card = e.target.closest(".aceternity-card");
