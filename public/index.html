@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SpectaVit Beauty Hub</title>
+  <link rel="icon" type="image/x-icon" href="https://lh3.googleusercontent.com/aida-public/AB6AXuB0c7oJP3SE0cNpU1OEuaShoXtJrUemAqsz_ZFOjBmSyq27TRr0A40QZT0xJae3d5gati44Pttz1dFJKHcC9mkVgcSFSzC4ny3DURCjYP_oXJxv4AGhh0ZocZXrIBOmK6cPH2o9TFhDlP-cYMnUlMKD26rMxP3KBlQ4cXxj4GHDOGluxj1LKL1t0hWGSTN27LjMcApU8nJn6FtB8bBT0_NftapyggdbxzdtXXty9JHxfJWA5x1KD0jFt5QEUCKDa7BmjdE">
+  <meta name="description" content="Premium beauty products, wig revamp supplies, and professional salon equipment. 24/7 delivery across Nigeria.">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <!-- Material Symbols -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
+  <!-- Custom Styles Link -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Lenis Smooth Scroll CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body
+  class="bg-background dark:bg-surface-dark text-on-background dark:text-on-surface font-body-md antialiased selection:bg-secondary/20 selection:text-primary">
+
+  <!-- Page Entrance Loader -->
+  <div id="page-loader" class="page-loader">
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0c7oJP3SE0cNpU1OEuaShoXtJrUemAqsz_ZFOjBmSyq27TRr0A40QZT0xJae3d5gati44Pttz1dFJKHcC9mkVgcSFSzC4ny3DURCjYP_oXJxv4AGhh0ZocZXrIBOmK6cPH2o9TFhDlP-cYMnUlMKD26rMxP3KBlQ4cXxj4GHDOGluxj1LKL1t0hWGSTN27LjMcApU8nJn6FtB8bBT0_NftapyggdbxzdtXXty9JHxfJWA5x1KD0jFt5QEUCKDa7BmjdE"
+      alt="Loading..." class="loader-brand h-20 w-20 object-cover rounded-full">
+  </div>
+
+  <!-- TopNavBar Component -->
+  <nav id="main-nav" class="docked full-width top-0 sticky z-50 glass-nav border-b border-outline-variant/30 dark:border-outline/20 transition-all duration-300">
+    <div
+      class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto">
+      <!-- Brand Logo -->
+      <a class="flex items-center gap-3" href="#">
+        <img alt="SpectaVit Beauty Hub Logo"
+          class="nav-logo h-12 w-12 object-cover rounded-full shadow-sm border border-secondary/20 dark:border-outline/20"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0c7oJP3SE0cNpU1OEuaShoXtJrUemAqsz_ZFOjBmSyq27TRr0A40QZT0xJae3d5gati44Pttz1dFJKHcC9mkVgcSFSzC4ny3DURCjYP_oXJxv4AGhh0ZocZXrIBOmK6cPH2o9TFhDlP-cYMnUlMKD26rMxP3KBlQ4cXxj4GHDOGluxj1LKL1t0hWGSTN27LjMcApU8nJn6FtB8bBT0_NftapyggdbxzdtXXty9JHxfJWA5x1KD0jFt5QEUCKDa7BmjdE">
+        <span
+          class="font-display-lg text-headline-md tracking-tight text-primary dark:text-on-primary-container hidden sm:block">SpectaVit
+          Beauty Hub</span>
+      </a>
+
+      <!-- Navigation Links (Desktop) -->
+      <ul class="hidden md:flex items-center gap-8">
+        <li><a
+            class="font-display-lg text-[16px] font-semibold text-on-surface-variant hover:text-secondary dark:text-on-tertiary-container dark:hover:text-secondary-fixed transition-colors"
+            href="#collection" onclick="document.querySelector('.cat-filter-btn[data-category=\'revamp\']').click()">Wig
+            Revamp</a></li>
+        <li><a
+            class="font-display-lg text-[16px] font-semibold text-on-surface-variant hover:text-secondary dark:text-on-tertiary-container dark:hover:text-secondary-fixed transition-colors"
+            href="#collection"
+            onclick="document.querySelector('.cat-filter-btn[data-category=\'installation\']').click()">Installation</a>
+        </li>
+        <li><a
+            class="font-display-lg text-[16px] font-semibold text-on-surface-variant hover:text-secondary dark:text-on-tertiary-container dark:hover:text-secondary-fixed transition-colors"
+            href="#collection"
+            onclick="document.querySelector('.cat-filter-btn[data-category=\'equipment\']').click()">Salon Equipment</a>
+        </li>
+        <li><a
+            class="font-display-lg text-[16px] font-semibold text-on-surface-variant hover:text-secondary dark:text-on-tertiary-container dark:hover:text-secondary-fixed transition-colors"
+            href="#collection"
+            onclick="document.querySelector('.cat-filter-btn[data-category=\'accessories\']').click()">Accessories</a>
+        </li>
+      </ul>
+
+      <!-- Trailing Icons -->
+      <div class="flex items-center gap-4">
+        <!-- Light/Dark Mode Toggle -->
+        <button
+          class="theme-toggle-btn text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1"
+          aria-label="Toggle light/dark mode">
+          <span class="material-symbols-outlined theme-toggle-icon">dark_mode</span>
+          <span class="sr-only">Toggle theme</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button id="cart-open-btn"
+          class="relative text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1"
+          aria-label="Open Cart Bag">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
+          <span class="sr-only">Cart</span>
+          <span
+            class="cart-count-badge hidden absolute -top-1 -right-1 bg-secondary dark:bg-secondary-fixed text-on-secondary dark:text-on-secondary-fixed font-semibold text-[10px] w-5 h-5 flex items-center justify-center rounded-full border border-background dark:border-surface">0</span>
+        </button>
+
+        <!-- Profile / Account Indicator (Direct Call Shortcut) -->
+        <a href="tel:09121797174"
+          class="text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 hidden sm:block"
+          aria-label="Call Direct Line">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">call</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="drawer-open-btn" class="drawer-open-btn md:hidden text-primary dark:text-on-primary-container p-2"
+          aria-expanded="false" aria-controls="menu-drawer" aria-label="Open mobile menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Left Mobile Drawer (Menu Navigation) -->
+  <div id="menu-drawer" class="drawer drawer-left" popover="manual">
+    <div class="drawer-scroller">
+      <nav
+        class="drawer-sheet bg-background dark:bg-surface-dark border-r border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
+        tabindex="-1" data-lenis-prevent>
+        <div>
+          <div class="flex justify-between items-center pb-6 border-b border-outline-variant/20 dark:border-outline/10">
+            <span class="font-display-lg text-headline-md text-primary dark:text-on-primary-container">Navigation</span>
+            <button class="drawer-close-btn text-primary dark:text-on-primary-container p-1" aria-label="Close menu">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <ul
+            class="flex flex-col gap-6 pt-8 font-semibold text-lg text-on-surface-variant dark:text-on-tertiary-container">
+            <li><a href="#collection"
+                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+                data-category="all"><span class="material-symbols-outlined">all_inclusive</span> Catalog Hub</a></li>
+            <li><a href="#collection"
+                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+                data-category="revamp"><span class="material-symbols-outlined">content_cut</span> Wig Revamp</a></li>
+            <li><a href="#collection"
+                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+                data-category="installation"><span class="material-symbols-outlined">style</span> Frontal Install</a>
+            </li>
+            <li><a href="#collection"
+                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+                data-category="equipment"><span class="material-symbols-outlined">dry</span> Salon Tools</a></li>
+            <li><a href="#collection"
+                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+                data-category="accessories"><span class="material-symbols-outlined">grid_view</span> Accessories</a>
+            </li>
+            <li><a href="#services"
+                class="mobile-menu-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"><span
+                  class="material-symbols-outlined">award_star</span> Our Promises</a></li>
+          </ul>
+        </div>
+        <div class="pt-8 border-t border-outline-variant/20 dark:border-outline/10 flex flex-col gap-4">
+          <button onclick="openBookingModal()"
+            class="w-full py-3.5 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-center rounded font-label-md uppercase tracking-wider magnetic-btn">Book
+            Revamp</button>
+          <a href="tel:09121797174"
+            class="w-full py-3.5 border border-secondary text-secondary dark:text-secondary-fixed text-center rounded font-label-md uppercase tracking-wider flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined text-sm">phone</span> Call Concierge
+          </a>
+        </div>
+      </nav>
+      <div class="drawer-spacer drawer-close-btn"></div>
+    </div>
+  </div>
+
+  <!-- Right Cart Drawer (Shopping Bag Inquiry) -->
+  <div id="cart-drawer" class="drawer drawer-right" popover="manual">
+    <div class="drawer-scroller">
+      <div class="drawer-spacer cart-close-btn"></div>
+      <div
+        class="drawer-sheet bg-background dark:bg-surface-dark border-l border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
+        tabindex="-1" data-lenis-prevent>
+        <div>
+          <div class="flex justify-between items-center pb-6 border-b border-outline-variant/20 dark:border-outline/10">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary dark:text-on-primary-container">shopping_bag</span>
+              <span class="font-display-lg text-headline-md text-primary dark:text-on-primary-container">Your Bag</span>
+            </div>
+            <button class="cart-close-btn text-primary dark:text-on-primary-container p-1" aria-label="Close cart">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Cart List -->
+          <div id="cart-items-list" class="flex flex-col overflow-y-auto max-h-[60vh] mt-4 pr-1">
+            <!-- Rendered dynamically by app.js -->
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-outline-variant/25 dark:border-outline/15 mt-auto">
+          <div class="flex justify-between items-center mb-6">
+            <span class="text-on-surface-variant dark:text-on-tertiary-container font-medium">Subtotal</span>
+            <span id="cart-subtotal"
+              class="font-display-lg text-xl font-bold text-secondary dark:text-secondary-fixed">₦0</span>
+          </div>
+          <p
+            class="text-xs text-on-surface-variant dark:text-on-tertiary-container/80 mb-6 text-balance leading-normal">
+            Shipping and delivery rates are finalized by the concierge line. Payment required prior to dispatch.
+          </p>
+          <button id="cart-checkout-btn" onclick="checkoutCart()"
+            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-widest rounded shadow hover:bg-primary-container transition-colors text-center block magnetic-btn">
+            Submit Bag Inquiry
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wig Revamp & Installation Booking Dialog Modal -->
+  <dialog id="booking-modal" class="w-[calc(100%-2.5rem)] md:w-full max-w-lg">
+    <div
+      class="bg-background dark:bg-surface-dark border border-outline-variant/30 dark:border-outline/10 rounded-xl p-8 shadow-2xl relative overflow-y-auto max-h-[90vh]" data-lenis-prevent>
+      <button onclick="closeBookingModal()"
+        class="absolute top-4 right-4 text-on-surface-variant hover:text-primary dark:hover:text-on-primary-container p-1 rounded-full bg-surface-container/50 dark:bg-surface-container-dark/50"
+        aria-label="Close modal">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="text-center mb-8">
+        <span
+          class="material-symbols-outlined text-secondary dark:text-secondary-fixed-dim text-4xl mb-2">content_cut</span>
+        <h3 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-container">Book Concierge Service
+        </h3>
+        <p class="text-sm text-on-surface-variant dark:text-on-tertiary-container mt-1">Submit your request, we process
+          instantly 24/7</p>
+      </div>
+      <form id="booking-form" onsubmit="submitBookingForm(event)" class="space-y-5">
+        <div>
+          <label for="booking-name"
+            class="block text-sm font-semibold text-primary dark:text-on-primary-container mb-2">Full Name</label>
+          <input type="text" id="booking-name" required placeholder="e.g. Chinedu Okafor"
+            class="w-full px-4 py-3 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded text-on-surface focus:outline-none focus:border-secondary focus:ring-0 transition-colors"
+            autocomplete="name">
+        </div>
+        <div>
+          <label for="booking-phone"
+            class="block text-sm font-semibold text-primary dark:text-on-primary-container mb-2">Phone Number</label>
+          <input type="tel" id="booking-phone" required placeholder="0912 179 7174"
+            class="w-full px-4 py-3 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded text-on-surface focus:outline-none focus:border-secondary focus:ring-0 transition-colors"
+            autocomplete="tel">
+        </div>
+        <div>
+          <label for="booking-service"
+            class="block text-sm font-semibold text-primary dark:text-on-primary-container mb-2">Service Needed</label>
+          <select id="booking-service" required
+            class="w-full px-4 py-3 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded text-on-surface focus:outline-none focus:border-secondary focus:ring-0 transition-colors">
+            <option value="" disabled selected>Select a package...</option>
+            <option value="Wig Revamp - Complete Wash & Condition (₦10,000)">Wig Revamp: Wash & Conditioner (₦10,000)
+            </option>
+            <option value="Wig Revamp - Keratin Restoration (₦18,000)">Wig Revamp: Keratin Restoration Treatment
+              (₦18,000)</option>
+            <option value="Frontal Installation - Glued Install (₦25,000)">Frontal Installation: Glued Install (₦25,000)
+            </option>
+            <option value="Frontal Installation - Glue-less Install (₦20,000)">Frontal Installation: Glue-less Install
+              (₦20,000)</option>
+            <option value="Installation & Styling Combo (₦30,000)">Installation & Styling Combo (₦30,000)</option>
+            <option value="Wig Customization (Knot bleaching/plucking) (₦12,000)">Wig Customization: Bleaching &
+              Plucking (₦12,000)</option>
+          </select>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label for="booking-date"
+              class="block text-sm font-semibold text-primary dark:text-on-primary-container mb-2">Preferred
+              Date</label>
+            <input type="date" id="booking-date" required
+              class="w-full px-4 py-3 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded text-on-surface focus:outline-none focus:border-secondary focus:ring-0 transition-colors">
+          </div>
+          <div>
+            <label for="booking-time"
+              class="block text-sm font-semibold text-primary dark:text-on-primary-container mb-2">Preferred
+              Time</label>
+            <input type="time" id="booking-time" required
+              class="w-full px-4 py-3 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded text-on-surface focus:outline-none focus:border-secondary focus:ring-0 transition-colors">
+          </div>
+        </div>
+        <div>
+          <label for="booking-notes"
+            class="block text-sm font-semibold text-primary dark:text-on-primary-container mb-2">Additional Instructions
+            / Wig Type</label>
+          <textarea id="booking-notes" placeholder="E.g. 24-inch bodywave frontal revamp drop-off..." rows="3"
+            class="w-full px-4 py-3 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded text-on-surface focus:outline-none focus:border-secondary focus:ring-0 transition-colors"></textarea>
+        </div>
+        <div class="pt-4">
+          <button type="submit"
+            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-wider rounded shadow hover:bg-primary-container transition-colors magnetic-btn">Confirm
+            and Send Details</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Product Detail Dialog Modal -->
+  <dialog id="product-detail-modal" class="w-[calc(100%-2.5rem)] md:w-full max-w-2xl">
+    <div
+      class="bg-background dark:bg-surface-dark border border-outline-variant/30 dark:border-outline/10 rounded-xl overflow-hidden shadow-2xl relative max-h-[90vh]">
+      <button onclick="closeProductDetail()"
+        class="absolute top-4 right-4 z-10 text-on-surface-variant hover:text-primary dark:hover:text-on-primary-container p-1.5 rounded-full bg-surface-container-lowest/80 dark:bg-surface-dark/80 backdrop-blur-sm border border-outline-variant/20 dark:border-outline/10"
+        aria-label="Close Modal">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="grid grid-cols-1 md:grid-cols-2 overflow-y-auto max-h-[90vh]" data-lenis-prevent>
+        <div
+          class="relative bg-surface-container dark:bg-surface-container-dark flex items-center justify-center p-8 aspect-square md:aspect-auto md:h-full">
+          <img id="modal-prod-img" class="w-full h-full object-cover rounded shadow-sm" src="" alt="">
+          <div id="modal-prod-bestseller"
+            class="hidden absolute top-4 left-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-xs font-label-sm uppercase px-3 py-1 rounded-sm tracking-wider">
+            Bestseller</div>
+        </div>
+        <div class="p-8 flex flex-col justify-between h-full min-h-[350px]">
+          <div>
+            <span id="modal-prod-category"
+              class="font-label-sm text-secondary dark:text-secondary-fixed text-xs uppercase tracking-wider mb-2 block"></span>
+            <h3 id="modal-prod-name"
+              class="font-display-lg text-headline-lg text-primary dark:text-on-primary-container mb-4"></h3>
+            <p id="modal-prod-desc"
+              class="font-body-md text-sm text-on-surface-variant dark:text-on-tertiary-container leading-relaxed mb-6">
+            </p>
+          </div>
+
+          <div class="pt-6 border-t border-outline-variant/20 dark:border-outline/10 mt-auto">
+            <div class="flex justify-between items-center mb-6">
+              <span class="text-sm font-semibold text-on-surface-variant dark:text-on-tertiary-container">Price</span>
+              <span id="modal-prod-price"
+                class="font-display-lg text-2xl font-bold text-secondary dark:text-secondary-fixed-dim"></span>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <button onclick="addSelectedToCart()"
+                class="py-3 px-4 bg-secondary text-on-secondary dark:bg-secondary-fixed dark:text-on-secondary-fixed font-label-md uppercase tracking-wider rounded shadow hover:bg-secondary/95 transition-all text-center flex items-center justify-center gap-2 magnetic-btn">
+                <span class="material-symbols-outlined text-sm">add_shopping_cart</span> Add to bag
+              </button>
+              <button onclick="inquireSelectedProduct()"
+                class="py-3 px-4 border border-primary dark:border-outline text-primary dark:text-on-primary-container hover:bg-primary/5 dark:hover:bg-outline/10 font-label-md uppercase tracking-wider rounded transition-all text-center flex items-center justify-center gap-2 magnetic-btn">
+                <span class="material-symbols-outlined text-sm">chat</span> Inquiry
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <!-- Magic UI Ambient decorative lights -->
+      <div class="ambient-light ambient-primary -top-20 -left-20" data-parallax="0.03"></div>
+      <div class="ambient-light ambient-secondary bottom-10 right-10" data-parallax="0.05"></div>
+
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <div
+          class="w-full h-full bg-cover bg-center bg-no-repeat opacity-95 dark:opacity-85 mix-blend-multiply dark:mix-blend-normal"
+          style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC7f3aSJ2Tk6T-XiHHdClY3sCQGb97h5RH3S5XaO0G51wCFBKf1iMBySVDbbLXlDdwmTgU3Ok7WvO4IP3_2sp53D_k4PSJfazk1NfKYlFdthuPBXbiFSZ9VvpmqGNFKzLMnnCGdMiKrOMCGq5XUuFA-C_mBuABTlmDl29rXAMHB4N1bwEjh_CzLXOF4-p3PiEM7_JgJHY70xTHKSHOLUVJvNocAkjt5s46_ZWMl3TgPi2t8lfe-30Wa5Q')">
+        </div>
+        <!-- Gradient Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent dark:from-surface-dark dark:via-surface-dark/85 dark:to-transparent">
+        </div>
+      </div>
+
+      <div
+        class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 flex flex-col items-start md:w-2/3 lg:w-1/2">
+        <div
+          class="hero-badge inline-flex items-center gap-2 mb-6 px-4 py-1 border border-secondary/30 rounded-full bg-surface-container-lowest/50 dark:bg-surface-dark/50 backdrop-blur-sm">
+          <span class="w-2 h-2 rounded-full bg-secondary dark:bg-secondary-fixed animate-pulse"></span>
+          <span
+            class="font-label-sm text-primary dark:text-on-primary-container uppercase tracking-widest text-[11px]">Premium
+            Service</span>
+        </div>
+        <h1
+          class="font-display-lg text-display-lg text-primary dark:text-on-primary-container mb-6 text-balance leading-tight">
+          <span class="hero-line">Elite Beauty.</span>
+          <span class="hero-line text-secondary dark:text-secondary-fixed italic">24/7 Service.</span>
+          <span class="hero-line">Delivered Nationwide.</span>
+        </h1>
+        <p class="hero-subtitle font-body-lg text-body-lg text-on-surface-variant dark:text-on-tertiary-container/90 mb-10 max-w-md">
+          Exactly what you need, exactly when you need it. No delays, no compromises. Straight from Specta to your door.
+        </p>
+        <div class="hero-cta flex flex-wrap gap-4">
+          <a class="magnetic-btn inline-flex items-center justify-center px-8 py-4 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container font-label-md uppercase tracking-wider rounded shadow-[0_10px_30px_rgba(6,78,59,0.15)] hover:bg-primary-container transition-all duration-300 hover:shadow-[0_10px_30px_rgba(107,33,168,0.2)] btn-shine"
+            href="#collection">
+            Shop Collection
+          </a>
+          <button onclick="openBookingModal()"
+            class="magnetic-btn inline-flex items-center justify-center px-8 py-4 bg-transparent border border-secondary dark:border-outline text-secondary dark:text-secondary-fixed font-label-md uppercase tracking-wider rounded hover:bg-secondary/5 dark:hover:bg-outline/10 transition-all duration-300 btn-shine">
+            Book Revamp Flow
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Marquee Strip -->
+    <div class="marquee-strip w-full py-4 border-y border-outline-variant/20 dark:border-outline/10 bg-surface-container-low dark:bg-surface-dark">
+      <div class="marquee-track text-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest">
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span> Trusted by 500+ Clients</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span> 24/7 Nationwide Delivery</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Premium Quality Products</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9★ Average Rating</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">support_agent</span> WhatsApp Concierge</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">lock</span> Secure Payments</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span> Trusted by 500+ Clients</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">local_shipping</span> 24/7 Nationwide Delivery</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span> Premium Quality Products</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span> 4.9★ Average Rating</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">support_agent</span> WhatsApp Concierge</span>
+        <span class="marquee-item"><span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-[16px]" style="font-variation-settings: 'FILL' 1;">lock</span> Secure Payments</span>
+      </div>
+    </div>
+
+    <!-- Services Section (Value Proposition) -->
+    <section
+      class="w-full bg-surface-container-low dark:bg-surface-container-dark py-20 border-t border-outline-variant/20 dark:border-outline/10"
+      id="services">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          <!-- Service 1 -->
+          <div
+            class="reveal-item flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300"
+            style="--reveal-delay: 0ms">
+            <div
+              class="w-16 h-16 rounded-full bg-primary/5 dark:bg-primary-container/10 flex items-center justify-center mb-6 text-primary dark:text-on-primary-container">
+              <span class="material-symbols-outlined text-3xl"
+                style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary dark:text-on-primary-container mb-3">Nationwide
+              Delivery</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container/90">Swift,
+              secure, and reliable shipping across Nigeria directly to your doorstep. No delays.</p>
+          </div>
+          <!-- Service 2 -->
+          <div
+            class="reveal-item flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300"
+            style="--reveal-delay: 120ms">
+            <div
+              class="w-16 h-16 rounded-full bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center mb-6 text-secondary dark:text-secondary-fixed">
+              <span class="material-symbols-outlined text-3xl"
+                style="font-variation-settings: 'FILL' 1;">schedule</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary dark:text-on-primary-container mb-3">24-Hour
+              Availability</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container/90">Our
+              concierge service is always online. Order anytime, we process your goods immediately.</p>
+          </div>
+          <!-- Service 3 -->
+          <div
+            class="reveal-item flex flex-col items-center text-center p-8 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300"
+            style="--reveal-delay: 240ms">
+            <div
+              class="w-16 h-16 rounded-full bg-primary/5 dark:bg-primary-container/10 flex items-center justify-center mb-6 text-primary dark:text-on-primary-container">
+              <span class="material-symbols-outlined text-3xl"
+                style="font-variation-settings: 'FILL' 1;">verified_user</span>
+            </div>
+            <h3 class="font-headline-md text-headline-md text-primary dark:text-on-primary-container mb-3">Trust &
+              Reliability</h3>
+            <p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container/90">Authentic
+              formulations, premium-grade tools, and a strict commitment to user satisfaction.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animated Stats Counter Section -->
+    <section class="w-full py-16 bg-background dark:bg-surface-dark border-b border-outline-variant/20 dark:border-outline/10">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+          <div class="reveal-item text-center p-6 bg-surface-container-lowest dark:bg-surface-dark border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300 rounded-xl" style="--reveal-delay: 0ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="500" data-suffix="+">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">Happy Clients</p>
+          </div>
+          <div class="reveal-item text-center p-6 bg-surface-container-lowest dark:bg-surface-dark border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300 rounded-xl" style="--reveal-delay: 100ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="35" data-suffix="">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">Premium Products</p>
+          </div>
+          <div class="reveal-item text-center p-6 bg-surface-container-lowest dark:bg-surface-dark border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300 rounded-xl" style="--reveal-delay: 200ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="24" data-suffix="/7">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">Service Hours</p>
+          </div>
+          <div class="reveal-item text-center p-6 bg-surface-container-lowest dark:bg-surface-dark border border-secondary/10 dark:border-outline/10 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover-lift transition-all duration-300 rounded-xl" style="--reveal-delay: 300ms">
+            <span class="counter-value font-display-lg text-display-lg text-primary dark:text-on-primary-container" data-target="36" data-suffix="">0</span>
+            <p class="font-label-sm text-on-surface-variant dark:text-on-tertiary-container uppercase tracking-widest mt-2 text-xs">States Covered</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Categories Grid (Bento Style) -->
+    <section class="w-full py-24 bg-background dark:bg-surface-dark" id="categories">
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="text-center mb-16 reveal-item">
+          <h2
+            class="font-display-lg text-headline-lg md:text-display-lg text-primary dark:text-on-primary-container mb-4">
+            Curated Excellence</h2>
+          <p class="font-body-md text-body-lg text-on-surface-variant dark:text-on-tertiary-container">Explore our
+            definitive collection of professional-grade tools and essentials.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px]">
+          <!-- Category 1: Wig Revamp (Large) -->
+          <div
+            class="md:col-span-8 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card tilt-card reveal-item">
+            <div class="aceternity-border"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbxtQzJ7oqap4OlmmiujTllYnExBJoDO522tM0oIU9AyzRkdgtW6KByIPUtgNgnBLoaBQH0I8v5xFcKT1BIzTr9GDVZ9OrSp7l8baxZgVyVnO28dLPmQ3XOEOg06MxkFas1jmspxk5OIcqVZjQat0oHo4T9e2WHraBYt0j9tvYMN9xFrA75w1_LfigTUYVwAnDXrhD40SOMW2Fim-o26QngSImTTXu0lrhOsex01UHxldzwQV0gqmCyw')">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/45 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full">
+              <h3 class="font-headline-md text-headline-lg text-on-primary mb-2">Wig Revamping Excellence</h3>
+              <p class="font-body-md text-body-md text-on-primary/80 mb-4 max-w-md">Silicon Mix, Keratin treatments,
+                Baosmei, and premium Argan/Olive large conditioning sets.</p>
+              <a class="inline-flex items-center text-secondary-fixed font-label-md uppercase tracking-wider group-hover:underline cursor-pointer"
+                href="#collection"
+                onclick="document.querySelector('.cat-filter-btn[data-category=\'revamp\']').click()">
+                Shop Category <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 2: Installation (Tall) -->
+          <div
+            class="md:col-span-4 md:row-span-2 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card tilt-card reveal-item">
+            <div class="aceternity-border"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8iOcG8nBn3dCe6phTPvQtOMIXXZ6UKFWiD8tqXaQKk0yHy4tPBY3bBF5J0ois8FD177YVJY4oSBVbV24WN_eBFjdBA04hXV2xHnSNXYO8dxXqZP_NKs1vzCAUhLEfJPZtjxqfmSUvS2t0uBMcpNONFdYi3vMkIugMh-zcOMFvjjOrmxb20np_qltUN9LqjEzKPiaP-5Nw6UsRIL--hdPfSURsehQkNB-r6B9V1I0kPwYpuDOaVxeLYA')">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/25 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full">
+              <h3 class="font-headline-md text-headline-md text-on-primary mb-2">Professional Installation</h3>
+              <p class="font-body-md text-body-md text-on-primary/80 mb-4">Lace Tints, Bond Adhesives, Melting Sprays,
+                and fast lace glue Removers.</p>
+              <a class="inline-flex items-center text-secondary-fixed font-label-md uppercase tracking-wider group-hover:underline cursor-pointer"
+                href="#collection"
+                onclick="document.querySelector('.cat-filter-btn[data-category=\'installation\']').click()">
+                Shop Category <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 3: Salon Equipment (Square) -->
+          <div
+            class="md:col-span-4 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 hover-lift aceternity-card tilt-card reveal-item">
+            <div class="aceternity-border"></div>
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBCkX1rpzA6C3LKFMa-byh8Fs0ObLsD3leTmYbJcgHKSn2Bo15iDD2WbPGCUo3DuDw0kKKjS0fHsQhzIX--VxeZ28syWsou9-mUMut-1u9Ke5gHUpPrWhjz_72DsibWlkFIAF8kzR1jXFdQHD94Anl3rfQ8il8Sv6EY8QiQo7BBVLB46e2qFuaunoshDMjYarizTMWlchBA3RxTzdj3KOGCAsCogkKzNMQrCEoaskqt0jclIHa_Rw_1kA')">
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/40 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 w-full">
+              <h3 class="font-headline-md text-headline-md text-on-primary mb-2">Salon Equipment</h3>
+              <p class="font-body-md text-body-md text-on-primary/80 mb-4 line-clamp-2">Straighteners, Curler Wands,
+                electric Hot Combs, Hand Dryers, and Trimmers.</p>
+              <a class="inline-flex items-center text-secondary-fixed font-label-md uppercase tracking-wider group-hover:underline cursor-pointer"
+                href="#collection"
+                onclick="document.querySelector('.cat-filter-btn[data-category=\'equipment\']').click()">
+                Shop <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 4: Accessories (Square) -->
+          <div
+            class="md:col-span-4 group relative rounded-xl overflow-hidden shadow-sm border border-outline-variant/20 dark:border-outline/10 bg-surface-container-lowest dark:bg-surface-dark flex items-center justify-center p-8 text-center hover-lift aceternity-card tilt-card reveal-item">
+            <div class="aceternity-border"></div>
+            <div class="relative z-10">
+              <div
+                class="w-12 h-12 mx-auto rounded-full bg-secondary/10 dark:bg-secondary-fixed/10 flex items-center justify-center mb-4 text-secondary dark:text-secondary-fixed">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stars</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-primary dark:text-on-primary-container mb-2">Essential
+                Accessories</h3>
+              <p class="font-body-md text-body-md text-on-surface-variant dark:text-on-tertiary-container mb-6">
+                Detangling Brushes, handheld Fans, Clips, Rollers, and custom Dye Kits.</p>
+              <a class="inline-flex items-center px-6 py-2 border border-primary dark:border-outline text-primary dark:text-on-primary-container font-label-md uppercase tracking-wider rounded hover:bg-primary hover:text-on-primary dark:hover:bg-primary-container transition-colors duration-300 cursor-pointer"
+                href="#collection"
+                onclick="document.querySelector('.cat-filter-btn[data-category=\'accessories\']').click()">
+                View All
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Products Section -->
+    <section
+      class="relative w-full py-24 bg-surface-container-low dark:bg-surface-container-dark border-y border-outline-variant/20 dark:border-outline/10 overflow-hidden"
+      id="collection">
+      <!-- Magic UI Ambient lights -->
+      <div class="ambient-light ambient-primary -bottom-10 -left-10" data-parallax="0.04"></div>
+      <div class="ambient-light ambient-secondary -top-20 -right-20" data-parallax="0.06"></div>
+
+      <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+        <div class="text-center mb-12 reveal-item">
+          <h2 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-container mb-2">Our Signature
+            Catalog</h2>
+          <p class="font-body-md text-body-lg text-on-surface-variant dark:text-on-tertiary-container/90">Search or
+            filter through all our products. We offer 24/7 delivery on checkout.</p>
+        </div>
+
+        <!-- Search and Filters Panel -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12 p-6 bg-surface-container-lowest dark:bg-surface-dark rounded-xl border border-secondary/15 dark:border-outline/10 shadow-sm">
+          <!-- Category Filter Pills -->
+          <div class="flex flex-wrap gap-2 justify-center md:justify-start w-full md:w-auto">
+            <button
+              class="cat-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-secondary text-on-secondary dark:bg-secondary-fixed dark:text-on-secondary-fixed transition-all"
+              data-category="all">All Items</button>
+            <button
+              class="cat-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-surface-container dark:bg-surface-container-dark text-on-surface hover:bg-secondary/10 dark:hover:bg-outline-variant/20 transition-all"
+              data-category="revamp">Wig Revamp</button>
+            <button
+              class="cat-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-surface-container dark:bg-surface-container-dark text-on-surface hover:bg-secondary/10 dark:hover:bg-outline-variant/20 transition-all"
+              data-category="installation">Installation</button>
+            <button
+              class="cat-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-surface-container dark:bg-surface-container-dark text-on-surface hover:bg-secondary/10 dark:hover:bg-outline-variant/20 transition-all"
+              data-category="equipment">Salon Equipment</button>
+            <button
+              class="cat-filter-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-surface-container dark:bg-surface-container-dark text-on-surface hover:bg-secondary/10 dark:hover:bg-outline-variant/20 transition-all"
+              data-category="accessories">Accessories</button>
+          </div>
+
+          <!-- Search Bar -->
+          <div class="relative w-full md:w-80">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant dark:text-on-tertiary-container/85 text-[20px]">search</span>
+            <input type="text" id="catalog-search" placeholder="Search products..."
+              class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low dark:bg-surface-container-dark border border-outline-variant/30 dark:border-outline/10 rounded-full text-sm text-on-surface focus:outline-none focus:border-secondary dark:focus:border-outline transition-colors focus:ring-0">
+          </div>
+        </div>
+
+        <!-- Catalog Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Message / Direct Booking Call Section -->
+    <section class="w-full py-24 bg-background dark:bg-surface-dark">
+      <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop text-center">
+        <span class="material-symbols-outlined text-secondary dark:text-secondary-fixed text-5xl mb-6 opacity-80"
+          style="font-variation-settings: 'FILL' 1;">format_quote</span>
+        <h2 class="font-display-lg text-headline-lg text-primary dark:text-on-primary-container mb-8 reveal-item">A Message from
+          Specta</h2>
+        <p
+          class="reveal-item font-body-md text-[20px] leading-relaxed text-on-surface-variant dark:text-on-tertiary-container italic mb-10 text-balance">
+          "Welcome to a standard of beauty that refuses to compromise. We built this hub to ensure professionals and
+          enthusiasts alike have continuous, immediate access to the finest tools and products on the market. We are
+          here for you, 24/7."
+        </p>
+        <div
+          class="reveal-item inline-flex flex-col items-center p-6 border border-secondary/20 dark:border-outline/10 rounded-xl bg-surface-container-lowest dark:bg-surface-dark shadow-sm">
+          <span
+            class="font-label-sm text-secondary dark:text-secondary-fixed-dim uppercase tracking-widest mb-2 text-xs">Direct
+            Concierge Line</span>
+          <a class="font-display-lg text-headline-md text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+            href="tel:09121797174">
+            0912 179 7174
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Component -->
+  <footer
+    class="full-width bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container font-body-md text-body-md flat no shadows">
+    <div class="w-full px-margin-desktop py-12 flex flex-col items-center gap-8 max-w-container-max mx-auto">
+      <!-- Brand -->
+      <div class="text-center">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjzSps2-y4BabSsuRNbClJa58jbotbMPmqIBkaRGsxa-VEPsHInH8G3lJsj5xRRizyDHXDZd_xEtFwlNWp-oL-g1PmES2n79o0PgEphBOLCivpqolGlNw7_-i5-5IYKFl4TB2qNnFCZUfHtUAT-AW3PqalV0onLUgwyicY_mbyRpRKOpALiGwDz_rGxilqSA3XF4vJ6UgE8rAVkLVEQyxJPVvgia_DZgE557MuKxEzOifJ6s4SydKP7uoze5E201c_gVo"
+          alt="SpectaVit Beauty Hub Logo"
+          class="h-16 w-16 object-cover rounded-full mx-auto mb-4 border border-on-primary/10 shadow-sm">
+        <h2 class="font-display-lg text-headline-md text-secondary-fixed dark:text-secondary-fixed mb-2">SpectaVit
+          Beauty Hub</h2>
+        <p class="text-on-primary dark:text-on-primary-container text-sm max-w-sm mx-auto text-balance">
+          Providing elite beauty essentials and tools with unmatched 24/7 reliability and nationwide delivery.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+        <li><a
+            class="text-on-primary dark:text-on-primary-container hover:text-secondary-fixed dark:hover:text-secondary-fixed transition-colors"
+            href="#categories">Categories</a></li>
+        <li><a
+            class="text-on-primary dark:text-on-primary-container hover:text-secondary-fixed dark:hover:text-secondary-fixed transition-colors"
+            href="#collection">Products</a></li>
+        <li><a
+            class="text-on-primary dark:text-on-primary-container hover:text-secondary-fixed dark:hover:text-secondary-fixed transition-colors"
+            href="#services">Our Focus</a></li>
+        <li><a
+            class="text-on-primary dark:text-on-primary-container hover:text-secondary-fixed dark:hover:text-secondary-fixed transition-colors"
+            href="tel:09121797174">Direct Call</a></li>
+      </ul>
+
+      <!-- Copyright -->
+      <div class="text-center border-t border-on-primary/10 dark:border-on-primary-container/10 pt-8 w-full mt-4">
+        <p class="text-sm text-on-primary dark:text-on-primary-container">
+          © 2026 SpectaVit Beauty Hub. 24/7 Professional Concierge. Phone: 09121797174
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic Referencing -->
+  <script defer src="app.js"></script>
+</body>
+
+</html>

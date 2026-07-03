@@ -1,6 +1,4 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".",
-  "framework": "static",
-  "env": []
+  "buildCommand": "npm run build && cp index.html styles.css app.js public/",
+  "outputDirectory": "public"
 }
