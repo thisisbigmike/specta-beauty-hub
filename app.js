@@ -707,7 +707,13 @@ window.closeProductDetail = function() {
 // Handle Inquire Product direct WhatsApp
 window.inquireSelectedProduct = function() {
   if (!selectedProduct) return;
-  const message = `Hello Specta! I am inquiring about the product: ${selectedProduct.name} (₦${selectedProduct.price.toLocaleString()}). Is it currently available for delivery?`;
+  const message = `Hello Specta! I am inquiring about the following product:\n\n` +
+                  `📸 *Product Image:* ${selectedProduct.image}\n\n` +
+                  `🏷️ *Product Name:* ${selectedProduct.name}\n` +
+                  `💰 *Price:* ₦${selectedProduct.price.toLocaleString()}\n` +
+                  `📋 *Description:* ${selectedProduct.description}\n` +
+                  `${selectedProduct.isBestseller ? '⭐ *Status:* Bestseller\n' : ''}` +
+                  `\nIs this product currently available for delivery? Please let me know the delivery timeline and payment options. Thank you!`;
   const url = `https://wa.me/2349121797174?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
 };
@@ -832,16 +838,19 @@ window.checkoutCart = function() {
   
   let message = `Hello Specta! I would like to order the following products from SpectaVit Beauty Hub:\n\n`;
   let subtotal = 0;
-  cart.forEach(item => {
+  cart.forEach((item, index) => {
     const totalItemPrice = item.product.price * item.quantity;
     subtotal += totalItemPrice;
-    message += `🛍️ *${item.product.name}* x${item.quantity}\n`;
-    message += `   Price: ₦${item.product.price.toLocaleString()} (Subtotal: ₦${totalItemPrice.toLocaleString()})\n\n`;
+    message += `${index + 1}️⃣ *${item.product.name}* x${item.quantity}\n`;
+    message += `   📸 Image: ${item.product.image}\n`;
+    message += `   💰 Unit Price: ₦${item.product.price.toLocaleString()}\n`;
+    message += `   📊 Subtotal: ₦${totalItemPrice.toLocaleString()}\n`;
+    message += `   📝 Description: ${item.product.description}\n\n`;
   });
   
   message += `━━━━━━━━━━━━━━━━━━━\n`;
   message += `⭐ *Grand Total: ₦${subtotal.toLocaleString()}*\n\n`;
-  message += `Please confirm my order and let me know the payment details and delivery logistics. Thank you!`;
+  message += `Please confirm my order and let me know the payment details, delivery address options, and timeline. Thank you!`;
 
   const url = `https://wa.me/2349121797174?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank");
