@@ -571,6 +571,7 @@ function setupScrollSnapDrawer(drawerId, openBtnId, closeBtnId, direction) {
 
   // Opening
   const openDrawer = () => {
+    drawer.removeAttribute("inert");
     drawer.showPopover();
     
     // Fallback if scroll-initial-target is unsupported
@@ -604,6 +605,7 @@ function setupScrollSnapDrawer(drawerId, openBtnId, closeBtnId, direction) {
       left: direction === "left" ? scroller.scrollWidth - scroller.clientWidth : 0,
       behavior: "smooth"
     });
+    drawer.setAttribute("inert", "");
   };
 
   openBtns.forEach(btn => btn.addEventListener("click", openDrawer));
@@ -755,11 +757,14 @@ window.openProductDetail = function(productId) {
     badge.classList.add("hidden");
   }
 
+  dialog.removeAttribute("inert");
   dialog.showModal();
 };
 
 window.closeProductDetail = function() {
-  document.getElementById("product-detail-modal").close();
+  const dialog = document.getElementById("product-detail-modal");
+  dialog.close();
+  dialog.setAttribute("inert", "");
   selectedProduct = null;
 };
 
@@ -931,11 +936,14 @@ window.openBookingModal = function(serviceType = "") {
       }
     }
   }
+  dialog.removeAttribute("inert");
   dialog.showModal();
 };
 
 window.closeBookingModal = function() {
-  document.getElementById("booking-modal").close();
+  const dialog = document.getElementById("booking-modal");
+  dialog.close();
+  dialog.setAttribute("inert", "");
 };
 
 window.submitBookingForm = function(event) {

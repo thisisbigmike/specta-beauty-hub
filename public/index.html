@@ -107,7 +107,7 @@
   </nav>
 
   <!-- Left Mobile Drawer (Menu Navigation) -->
-  <div id="menu-drawer" class="drawer drawer-left" popover="manual">
+  <div id="menu-drawer" class="drawer drawer-left" popover="manual" inert>
     <div class="drawer-scroller">
       <nav
         class="drawer-sheet bg-background dark:bg-surface-dark border-r border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
@@ -158,7 +158,7 @@
   </div>
 
   <!-- Right Cart Drawer (Shopping Bag Inquiry) -->
-  <div id="cart-drawer" class="drawer drawer-right" popover="manual">
+  <div id="cart-drawer" class="drawer drawer-right" popover="manual" inert>
     <div class="drawer-scroller">
       <div class="drawer-spacer cart-close-btn"></div>
       <div
@@ -201,7 +201,7 @@
   </div>
 
   <!-- Wig Revamp & Installation Booking Dialog Modal -->
-  <dialog id="booking-modal" class="w-[calc(100%-2.5rem)] md:w-full max-w-lg">
+  <dialog id="booking-modal" class="w-[calc(100%-2.5rem)] md:w-full max-w-lg" inert>
     <div
       class="bg-background dark:bg-surface-dark border border-outline-variant/30 dark:border-outline/10 rounded-xl p-8 shadow-2xl relative overflow-y-auto max-h-[90vh]" data-lenis-prevent>
       <button onclick="closeBookingModal()"
@@ -284,7 +284,7 @@
   </dialog>
 
   <!-- Product Detail Dialog Modal -->
-  <dialog id="product-detail-modal" class="w-[calc(100%-2.5rem)] md:w-full max-w-2xl">
+  <dialog id="product-detail-modal" class="w-[calc(100%-2.5rem)] md:w-full max-w-2xl" inert>
     <div
       class="bg-background dark:bg-surface-dark border border-outline-variant/30 dark:border-outline/10 rounded-xl overflow-hidden shadow-2xl relative max-h-[90vh]">
       <button onclick="closeProductDetail()"
