@@ -554,120 +554,57 @@ function animateCounter(el, target, suffix) {
   requestAnimationFrame(update);
 }
 
-// === DRAWERS (Scroll Snap Lifecycle) ===
+// === DRAWERS (CSS Slide Transitions & Popovers) ===
 function initDrawers() {
   // Left Drawer (Menu)
-  setupScrollSnapDrawer("menu-drawer", "drawer-open-btn", "drawer-close-btn", "left");
+  setupCSSDrawer("menu-drawer", "drawer-open-btn", "drawer-close-btn");
   // Right Drawer (Cart)
-  setupScrollSnapDrawer("cart-drawer", "cart-open-btn", "cart-close-btn", "right");
+  setupCSSDrawer("cart-drawer", "cart-open-btn", "cart-close-btn");
 }
 
-function setupScrollSnapDrawer(drawerId, openBtnId, closeBtnId, direction) {
+function setupCSSDrawer(drawerId, openBtnId, closeBtnId) {
   const drawer = document.getElementById(drawerId);
-  const scroller = drawer.querySelector(".drawer-scroller");
+  if (!drawer) return;
   const sheet = drawer.querySelector(".drawer-sheet");
   const openBtns = document.querySelectorAll(`.${openBtnId}, #${openBtnId}`);
   const closeBtns = document.querySelectorAll(`.${closeBtnId}, #${closeBtnId}`);
 
-  // Opening
   const openDrawer = () => {
-    drawer.removeAttribute("inert");
     drawer.showPopover();
-    
-    // Fallback if scroll-initial-target is unsupported
-    if (!CSS.supports('scroll-initial-target', 'nearest')) {
-      if (direction === "left") {
-        scroller.scrollTo({ left: sheet.offsetWidth, behavior: "instant" });
-      } else {
-        scroller.scrollTo({ left: 0, behavior: "instant" });
-      }
-      // Wait two frames before scrolling open
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          scroller.scrollTo({
-            left: direction === "left" ? 0 : scroller.scrollWidth - scroller.clientWidth,
-            behavior: "smooth"
-          });
-        });
-      });
-    } else {
-      // Browser supports scroll-initial-target
-      scroller.scrollTo({
-        left: direction === "left" ? 0 : scroller.scrollWidth - scroller.clientWidth,
-        behavior: "smooth"
-      });
+    document.body.style.overflow = "hidden"; // lock bg scroll
+    if (sheet) sheet.focus();
+    if (drawerId === "menu-drawer") {
+      document.getElementById("drawer-open-btn")?.setAttribute("aria-expanded", "true");
     }
   };
 
-  // Closing
   const closeDrawer = () => {
-    scroller.scrollTo({
-      left: direction === "left" ? scroller.scrollWidth - scroller.clientWidth : 0,
-      behavior: "smooth"
-    });
-    drawer.setAttribute("inert", "");
+    drawer.hidePopover();
+    document.body.style.overflow = ""; // restore scrolling
+    if (drawerId === "menu-drawer") {
+      document.getElementById("drawer-open-btn")?.setAttribute("aria-expanded", "false");
+    }
   };
 
   openBtns.forEach(btn => btn.addEventListener("click", openDrawer));
   closeBtns.forEach(btn => btn.addEventListener("click", closeDrawer));
 
-  // Light dismiss on backdrop tap
+  // Dismiss on clicking backdrop area
   drawer.addEventListener("click", (e) => {
-    if (!sheet.contains(e.target)) {
+    if (sheet && !sheet.contains(e.target)) {
       closeDrawer();
     }
   });
 
-  // Esc key dismiss
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && drawer.matches(":popover-open")) {
-      closeDrawer();
-    }
-  });
-
-  // IntersectionObserver to detect when it's closed and hide popover
-  const thresholdVal = 1 / window.innerWidth;
-  const observer = new IntersectionObserver((entries) => {
-    const entry = entries.at(-1);
-    
-    // Fully Closed
-    if (entry.intersectionRatio < thresholdVal) {
-      drawer.hidePopover();
-      document.body.style.overflow = ""; // restore scrolling
-      if (direction === "left") {
+  // Listen to popover dismiss events (Esc key or light dismiss) to clean up overflow lock
+  drawer.addEventListener("toggle", (e) => {
+    if (e.newState === "closed") {
+      document.body.style.overflow = "";
+      if (drawerId === "menu-drawer") {
         document.getElementById("drawer-open-btn")?.setAttribute("aria-expanded", "false");
       }
     }
-    // Fully Open
-    if (entry.intersectionRatio === 1) {
-      document.body.style.overflow = "hidden"; // lock bg scroll
-      sheet.focus();
-      if (direction === "left") {
-        document.getElementById("drawer-open-btn")?.setAttribute("aria-expanded", "true");
-      }
-    }
-  }, {
-    root: drawer,
-    threshold: [thresholdVal, 1]
   });
-
-  observer.observe(sheet);
-
-  // Fallback for scroll driven animation backdrop opacity in Firefox
-  if (!CSS.supports('animation-timeline: scroll()')) {
-    scroller.addEventListener("scroll", () => {
-      let ratio = 0;
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-      if (maxScroll > 0) {
-        if (direction === "left") {
-          ratio = 1 - (scroller.scrollLeft / maxScroll);
-        } else {
-          ratio = scroller.scrollLeft / maxScroll;
-        }
-      }
-      drawer.style.setProperty("--drawer-backdrop", ratio);
-    });
-  }
 }
 
 // === DYNAMIC CATALOG RENDERING ===

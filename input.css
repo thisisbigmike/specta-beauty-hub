@@ -250,85 +250,89 @@ dialog[open]::backdrop {
   }
 }
 
-/* === DRAWER (Scroll Snap) === */
+/* === DRAWER (CSS Side Slide Transitions) === */
 .drawer {
-  --drawer-width: min(24rem, 85vw);
-  --drawer-backdrop: 0;
-  width: 100%; height: 100%;
-  max-width: none; max-height: none;
-  background: transparent; border: 0;
-  overflow: visible; padding: 0; margin: 0;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
   display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease, display 0.4s allow-discrete, overlay 0.4s allow-discrete;
 }
-.drawer[open], .drawer:popover-open { display: block; }
+
+.drawer:popover-open {
+  display: flex;
+  opacity: 1;
+}
+
+/* Backdrop Blur & Fade */
 .drawer::backdrop {
-  background: #000;
-  opacity: calc(var(--drawer-backdrop) * 0.55);
-  backdrop-filter: blur(calc(var(--drawer-backdrop) * 6px));
-  -webkit-backdrop-filter: blur(calc(var(--drawer-backdrop) * 6px));
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease, display 0.4s allow-discrete, overlay 0.4s allow-discrete;
+}
+.drawer:popover-open::backdrop {
+  background-color: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
-/* Left Drawer */
-.drawer-left .drawer-scroller {
-  display: grid;
-  grid-template-columns: var(--drawer-width) 100%;
-  overflow-x: scroll; overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory; scrollbar-width: none;
-  height: 100vh; height: 100svh; width: 100vw;
+/* Drawer sheet panel styles */
+.drawer-sheet {
+  height: 100%;
+  width: min(24rem, 85vw);
+  background: var(--bg-base);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
 }
-.drawer-left .drawer-scroller::-webkit-scrollbar { display: none; }
+
+/* Left drawer configuration */
+.drawer-left {
+  justify-content: flex-start;
+}
 .drawer-left .drawer-sheet {
-  height: 100%; width: var(--drawer-width);
-  scroll-snap-align: start; overflow-y: auto;
+  transform: translateX(-100%);
 }
-.drawer-left .drawer-spacer {
-  width: 100%; scroll-snap-align: end; background: transparent;
+.drawer-left:popover-open .drawer-sheet {
+  transform: translateX(0);
 }
 
-/* Right Drawer */
-.drawer-right .drawer-scroller {
-  display: grid;
-  grid-template-columns: 100% var(--drawer-width);
-  overflow-x: scroll; overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory; scrollbar-width: none;
-  height: 100vh; height: 100svh; width: 100vw;
+/* Right drawer configuration */
+.drawer-right {
+  justify-content: flex-end;
 }
-.drawer-right .drawer-scroller::-webkit-scrollbar { display: none; }
 .drawer-right .drawer-sheet {
-  height: 100%; width: var(--drawer-width);
-  scroll-snap-align: end; overflow-y: auto;
+  transform: translateX(100%);
 }
-.drawer-right .drawer-spacer {
-  width: 100%; scroll-snap-align: start; background: transparent;
+.drawer-right:popover-open .drawer-sheet {
+  transform: translateX(0);
 }
 
-/* Scroll-driven drawer animation */
-@property --drawer-backdrop {
-  syntax: '<number>';
-  inherits: true;
-  initial-value: 0;
-}
-@supports (animation-timeline: scroll()) {
-  .drawer-left {
-    timeline-scope: --drawer-left-timeline;
-    animation: fade-drawer-left linear both;
-    animation-timeline: --drawer-left-timeline;
+/* Entry transitions with starting style rule */
+@starting-style {
+  .drawer:popover-open {
+    opacity: 0;
   }
-  .drawer-left .drawer-scroller { scroll-timeline: --drawer-left-timeline x; }
-  @keyframes fade-drawer-left {
-    0% { --drawer-backdrop: 1; }
-    100% { --drawer-backdrop: 0; }
+  .drawer:popover-open::backdrop {
+    background-color: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
   }
-  .drawer-right {
-    timeline-scope: --drawer-right-timeline;
-    animation: fade-drawer-right linear both;
-    animation-timeline: --drawer-right-timeline;
+  .drawer-left:popover-open .drawer-sheet {
+    transform: translateX(-100%);
   }
-  .drawer-right .drawer-scroller { scroll-timeline: --drawer-right-timeline x; }
-  @keyframes fade-drawer-right {
-    0% { --drawer-backdrop: 0; }
-    100% { --drawer-backdrop: 1; }
+  .drawer-right:popover-open .drawer-sheet {
+    transform: translateX(100%);
   }
 }
 

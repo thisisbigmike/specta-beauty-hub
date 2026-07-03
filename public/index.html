@@ -74,18 +74,18 @@
       <div class="flex items-center gap-4">
         <!-- Light/Dark Mode Toggle -->
         <button
-          class="theme-toggle-btn text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1"
+          class="theme-toggle-btn text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1.5"
           aria-label="Toggle light/dark mode">
           <span class="material-symbols-outlined theme-toggle-icon">dark_mode</span>
-          <span class="sr-only">Toggle theme</span>
+          <span class="text-xs font-semibold hidden sm:inline uppercase tracking-wider">Theme</span>
         </button>
 
         <!-- Shopping Bag Trigger -->
         <button id="cart-open-btn"
-          class="relative text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1"
+          class="relative text-primary dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed transition-all duration-300 scale-95 p-2 flex items-center gap-1.5"
           aria-label="Open Cart Bag">
           <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">shopping_bag</span>
-          <span class="sr-only">Cart</span>
+          <span class="text-xs font-semibold hidden sm:inline uppercase tracking-wider">Cart</span>
           <span
             class="cart-count-badge hidden absolute -top-1 -right-1 bg-secondary dark:bg-secondary-fixed text-on-secondary dark:text-on-secondary-fixed font-semibold text-[10px] w-5 h-5 flex items-center justify-center rounded-full border border-background dark:border-surface">0</span>
         </button>
@@ -107,95 +107,89 @@
   </nav>
 
   <!-- Left Mobile Drawer (Menu Navigation) -->
-  <div id="menu-drawer" class="drawer drawer-left" popover="manual" inert>
-    <div class="drawer-scroller">
-      <nav
-        class="drawer-sheet bg-background dark:bg-surface-dark border-r border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
-        tabindex="-1" data-lenis-prevent>
-        <div>
-          <div class="flex justify-between items-center pb-6 border-b border-outline-variant/20 dark:border-outline/10">
-            <span class="font-display-lg text-headline-md text-primary dark:text-on-primary-container">Navigation</span>
-            <button class="drawer-close-btn text-primary dark:text-on-primary-container p-1" aria-label="Close menu">
-              <span class="material-symbols-outlined">close</span>
-            </button>
-          </div>
-          <ul
-            class="flex flex-col gap-6 pt-8 font-semibold text-lg text-on-surface-variant dark:text-on-tertiary-container">
-            <li><a href="#collection"
-                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
-                data-category="all"><span class="material-symbols-outlined">all_inclusive</span> Catalog Hub</a></li>
-            <li><a href="#collection"
-                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
-                data-category="revamp"><span class="material-symbols-outlined">content_cut</span> Wig Revamp</a></li>
-            <li><a href="#collection"
-                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
-                data-category="installation"><span class="material-symbols-outlined">style</span> Frontal Install</a>
-            </li>
-            <li><a href="#collection"
-                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
-                data-category="equipment"><span class="material-symbols-outlined">dry</span> Salon Tools</a></li>
-            <li><a href="#collection"
-                class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
-                data-category="accessories"><span class="material-symbols-outlined">grid_view</span> Accessories</a>
-            </li>
-            <li><a href="#services"
-                class="mobile-menu-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"><span
-                  class="material-symbols-outlined">award_star</span> Our Promises</a></li>
-          </ul>
+  <div id="menu-drawer" class="drawer drawer-left" popover="manual">
+    <nav
+      class="drawer-sheet bg-background dark:bg-surface-dark border-r border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
+      tabindex="-1" data-lenis-prevent>
+      <div>
+        <div class="flex justify-between items-center pb-6 border-b border-outline-variant/20 dark:border-outline/10">
+          <span class="font-display-lg text-headline-md text-primary dark:text-on-primary-container">Navigation</span>
+          <button class="drawer-close-btn text-primary dark:text-on-primary-container p-1" aria-label="Close menu">
+            <span class="material-symbols-outlined">close</span>
+          </button>
         </div>
-        <div class="pt-8 border-t border-outline-variant/20 dark:border-outline/10 flex flex-col gap-4">
-          <button onclick="openBookingModal()"
-            class="w-full py-3.5 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-center rounded font-label-md uppercase tracking-wider magnetic-btn">Book
-            Revamp</button>
-          <a href="tel:09121797174"
-            class="w-full py-3.5 border border-secondary text-secondary dark:text-secondary-fixed text-center rounded font-label-md uppercase tracking-wider flex items-center justify-center gap-2">
-            <span class="material-symbols-outlined text-sm">phone</span> Call Concierge
-          </a>
-        </div>
-      </nav>
-      <div class="drawer-spacer drawer-close-btn"></div>
-    </div>
+        <ul
+          class="flex flex-col gap-6 pt-8 font-semibold text-lg text-on-surface-variant dark:text-on-tertiary-container">
+          <li><a href="#collection"
+              class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+              data-category="all"><span class="material-symbols-outlined">all_inclusive</span> Catalog Hub</a></li>
+          <li><a href="#collection"
+              class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+              data-category="revamp"><span class="material-symbols-outlined">content_cut</span> Wig Revamp</a></li>
+          <li><a href="#collection"
+              class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+              data-category="installation"><span class="material-symbols-outlined">style</span> Frontal Install</a>
+          </li>
+          <li><a href="#collection"
+              class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+              data-category="equipment"><span class="material-symbols-outlined">dry</span> Salon Tools</a></li>
+          <li><a href="#collection"
+              class="mobile-cat-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"
+              data-category="accessories"><span class="material-symbols-outlined">grid_view</span> Accessories</a>
+          </li>
+          <li><a href="#services"
+              class="mobile-menu-link flex items-center gap-3 hover:text-secondary dark:hover:text-secondary-fixed transition-colors"><span
+                class="material-symbols-outlined">award_star</span> Our Promises</a></li>
+        </ul>
+      </div>
+      <div class="pt-8 border-t border-outline-variant/20 dark:border-outline/10 flex flex-col gap-4">
+        <button onclick="openBookingModal()"
+          class="w-full py-3.5 bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container text-center rounded font-label-md uppercase tracking-wider magnetic-btn">Book
+          Revamp</button>
+        <a href="tel:09121797174"
+          class="w-full py-3.5 border border-secondary text-secondary dark:text-secondary-fixed text-center rounded font-label-md uppercase tracking-wider flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-sm">phone</span> Call Concierge
+        </a>
+      </div>
+    </nav>
   </div>
 
   <!-- Right Cart Drawer (Shopping Bag Inquiry) -->
-  <div id="cart-drawer" class="drawer drawer-right" popover="manual" inert>
-    <div class="drawer-scroller">
-      <div class="drawer-spacer cart-close-btn"></div>
-      <div
-        class="drawer-sheet bg-background dark:bg-surface-dark border-l border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
-        tabindex="-1" data-lenis-prevent>
-        <div>
-          <div class="flex justify-between items-center pb-6 border-b border-outline-variant/20 dark:border-outline/10">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary dark:text-on-primary-container">shopping_bag</span>
-              <span class="font-display-lg text-headline-md text-primary dark:text-on-primary-container">Your Bag</span>
-            </div>
-            <button class="cart-close-btn text-primary dark:text-on-primary-container p-1" aria-label="Close cart">
-              <span class="material-symbols-outlined">close</span>
-            </button>
+  <div id="cart-drawer" class="drawer drawer-right" popover="manual">
+    <div
+      class="drawer-sheet bg-background dark:bg-surface-dark border-l border-outline-variant/30 dark:border-outline/10 p-6 flex flex-col justify-between"
+      tabindex="-1" data-lenis-prevent>
+      <div>
+        <div class="flex justify-between items-center pb-6 border-b border-outline-variant/20 dark:border-outline/10">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary dark:text-on-primary-container">shopping_bag</span>
+            <span class="font-display-lg text-headline-md text-primary dark:text-on-primary-container">Your Bag</span>
           </div>
-
-          <!-- Dynamic Cart List -->
-          <div id="cart-items-list" class="flex flex-col overflow-y-auto max-h-[60vh] mt-4 pr-1">
-            <!-- Rendered dynamically by app.js -->
-          </div>
-        </div>
-
-        <div class="pt-6 border-t border-outline-variant/25 dark:border-outline/15 mt-auto">
-          <div class="flex justify-between items-center mb-6">
-            <span class="text-on-surface-variant dark:text-on-tertiary-container font-medium">Subtotal</span>
-            <span id="cart-subtotal"
-              class="font-display-lg text-xl font-bold text-secondary dark:text-secondary-fixed">₦0</span>
-          </div>
-          <p
-            class="text-xs text-on-surface-variant dark:text-on-tertiary-container/80 mb-6 text-balance leading-normal">
-            Shipping and delivery rates are finalized by the concierge line. Payment required prior to dispatch.
-          </p>
-          <button id="cart-checkout-btn" onclick="checkoutCart()"
-            class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-widest rounded shadow hover:bg-primary-container transition-colors text-center block magnetic-btn">
-            Submit Bag Inquiry
+          <button class="cart-close-btn text-primary dark:text-on-primary-container p-1" aria-label="Close cart">
+            <span class="material-symbols-outlined">close</span>
           </button>
         </div>
+
+        <!-- Dynamic Cart List -->
+        <div id="cart-items-list" class="flex flex-col overflow-y-auto max-h-[60vh] mt-4 pr-1">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-outline-variant/25 dark:border-outline/15 mt-auto">
+        <div class="flex justify-between items-center mb-6">
+          <span class="text-on-surface-variant dark:text-on-tertiary-container font-medium">Subtotal</span>
+          <span id="cart-subtotal"
+            class="font-display-lg text-xl font-bold text-secondary dark:text-secondary-fixed">₦0</span>
+        </div>
+        <p
+          class="text-xs text-on-surface-variant dark:text-on-tertiary-container/80 mb-6 text-balance leading-normal">
+          Shipping and delivery rates are finalized by the concierge line. Payment required prior to dispatch.
+        </p>
+        <button id="cart-checkout-btn" onclick="checkoutCart()"
+          class="w-full py-4 bg-primary text-on-primary dark:bg-primary-container dark:text-on-primary-container font-label-md uppercase tracking-widest rounded shadow hover:bg-primary-container transition-colors text-center block magnetic-btn">
+          Submit Bag Inquiry
+        </button>
       </div>
     </div>
   </div>
