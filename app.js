@@ -589,12 +589,11 @@ function setupCSSDrawer(drawerId, openBtnId, closeBtnId) {
   openBtns.forEach(btn => btn.addEventListener("click", openDrawer));
   closeBtns.forEach(btn => btn.addEventListener("click", closeDrawer));
 
-  // Dismiss on clicking backdrop area
-  drawer.addEventListener("click", (e) => {
-    if (sheet && !sheet.contains(e.target)) {
-      closeDrawer();
-    }
-  });
+  // Dismiss only when clicking on the drawer-spacer (backdrop area), not on the sheet
+  const spacer = drawer.querySelector(".drawer-spacer");
+  if (spacer) {
+    spacer.addEventListener("click", closeDrawer);
+  }
 
   // Listen to popover dismiss events (Esc key or light dismiss) to clean up overflow lock
   drawer.addEventListener("toggle", (e) => {
